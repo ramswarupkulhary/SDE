@@ -1,0 +1,22 @@
+//Sort arrary containing only 0's, 1's and 2's Time : o(n), space : o(1)
+//Two Pointer approach
+
+void solve(int arr[], int n)
+{
+    int i = 0, zero = 0, two  = n-1;
+    while(i <= two)
+    {
+        if(arr[i] == 0)
+        {
+            swap(arr[i], arr[zero]);
+            zero++;
+        }
+        else if(arr[i] == 2)
+        {
+            swap(arr[two], arr[i]);
+            two--;
+            continue;
+        }
+        i++;
+    }
+}

@@ -1,0 +1,23 @@
+//Find all duplicate time : o(n), space : o(n)
+//map solution
+vector<int> duplicates(int a[], int n) {
+    map<int, int> m;
+    for(int i = 0; i < n; i++)
+        m[a[i]]++;
+    vector<int> res;
+    bool flag = false;
+    for(auto data : m)
+    {
+        if(data.second >= 2)
+        {
+            res.push_back(data.first);
+            flag = true;
+        }
+    }
+    if(!flag)
+    {
+        res.push_back(-1);
+        return res;
+    }
+    return res;
+}

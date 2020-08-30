@@ -1,0 +1,12 @@
+// print nth row of pascal triangle
+// time complexity  o(n), space-complexity o(1)
+
+void solve(int n)
+{
+    vector<int> nthRow(n);
+    nthRow[0] = 1;
+    for(int i = 1; i < n; i++)
+        nthRow[i] = (nthRow[i-1]*(n-i)) / i;
+    for(int i = 0; i < n; i++)
+        cout<<nthRow[i]<<" ";
+}

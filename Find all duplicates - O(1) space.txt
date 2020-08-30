@@ -1,0 +1,32 @@
+//Find all duplicates time : o(n) space : o(1)
+//frequency concept
+//link -: https://www.geeksforgeeks.org/duplicates-array-using-o1-extra-space-set-2/
+
+
+vector<int> duplicates(int a[], int n) {
+    
+    for(int i = 0; i < n; i++)
+    {
+        int index = a[i] % n;
+        a[index] += n;
+    }
+    vector<int> res;
+    for(int i = 0; i < n; i++)
+    {
+        if(a[i]/n > 1)
+            res.push_back(i);
+    }
+    if(res.size() == 0)
+        res.push_back(-1);
+    return res;
+}
+
+
+//Description about solution
+The basic idea is to use a HashMap to solve the problem. 
+But there is a catch, the numbers in the array are from 0 to n-1, and the input array has length n. 
+So, the input array can be used as a HashMap. While traversing the array, if an element a is encountered then increase the value of a%n‘th element by n. 
+The frequency can be retrieved by dividing the a%n‘th element by n.
+
+
+

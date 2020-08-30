@@ -1,0 +1,28 @@
+//Merge Intervals
+
+
+
+void printMergeIntervals(vector<vector<int>> &v)
+{
+    vector<int> res;
+    if(v.size() == 0)
+        return;
+    int start = v[0][0], end = v[0][1];
+    for(int i = 0; i < v.size(); i++)
+    {
+        if(v[i][0] <= end)
+            end = max(end, v[i][1]);
+        else
+        {
+            res.push_back(start);
+            res.push_back(end);
+            start = v[i][0];
+            end = v[i][1];
+        }
+        
+    }
+    res.push_back(start);
+            res.push_back(end);
+    for(int i = 0; i < res.size(); i++)
+        cout<<res[i]<<" ";
+}
